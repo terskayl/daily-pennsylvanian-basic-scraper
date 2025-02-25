@@ -7,13 +7,13 @@ The expression order goes minute, hour, day of the month, month, and day of the 
 The first two terms means that 0 minutes after the hour, at 20:00 UTC, which is 8:00 pm UTC or 3:00 pm EST, it will perform the scrape.    
 The asterisks mean that it will do this on every day of the month, on every month, and every day of the week   
 I modified it to be:     
-cron: "25,30, 7 * * *", which means it will scrape at 2:25 and 2:30 am every day regardless of day of the week, day of the month, or month.  
+cron: "30, 7,19 * * *", which means it will scrape at 2:30 am and 2:30 pm every day regardless of day of the week, day of the month, or month.  
 
 ## Modifications to script.py
 I edited the scraper so that it instead took the first article headline from the opnions page. I did this by first changing the site requested to be the opnions page at https://www.thedp.com/section/opinion.  
 I did this by changing the site the request used. req = requests.get("https://www.thedp.com/section/opinion", headers=headers)  
 
-I also edited this line: target_element = soup.find("a", class_="standard-link") as it previously said "headline-link" instead of "standard-link". This is because I inspected the opinions page and I because I understand that soup will find the text of the first <a> html element that has the standard-link class. 
+I also edited this line: target_element = soup.find("h3", class_="standard-link") as it previously said "headline-link" instead of "standard-link". This is because I inspected the opinions page and I because I understand that soup will find the text of the first <h3> html element that has the standard-link class. At first I left the element as <a>, as the headline is also wrapped inside a <a>, but this element has no classes and thus difficult to select.
 
 # Basic Git Scraper Template
 
