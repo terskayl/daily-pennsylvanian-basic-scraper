@@ -7,7 +7,7 @@ The expression order goes minute, hour, day of the month, month, and day of the 
 The first two terms means that 0 minutes after the hour, at 20:00 UTC, which is 8:00 pm UTC or 3:00 pm EST, it will perform the scrape.    
 The asterisks mean that it will do this on every day of the month, on every month, and every day of the week   
 I modified it to be:     
-cron: "30, 7,19 * * *", which means it will scrape at 2:30 am and 2:30 pm every day regardless of day of the week, day of the month, or month.  
+cron: "30 7,19 * * *", which means it will scrape at 2:30 am and 2:30 pm every day regardless of day of the week, day of the month, or month.  
 
 ## Modifications to script.py
 I edited the scraper so that it instead took the first article headline from the opnions page. I did this by first changing the site requested to be the opnions page at https://www.thedp.com/section/opinion.  
