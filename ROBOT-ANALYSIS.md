@@ -3,7 +3,7 @@
 The Daily Pennsylvanian's robots.txt file is available at
 [https://www.thedp.com/robots.txt](https://www.thedp.com/robots.txt).
 
-## Contents of the robots.txt file on [ ... date you accessed the file ... ]
+## Contents of the robots.txt file on February 25, 2025
 
 User-agent: *
 Crawl-delay: 10
