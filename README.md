@@ -1,3 +1,20 @@
+# CIS 3500 Notes
+
+## Cron explanation
+Here was the original cron expression:  
+cron: "0 20 * * *"   
+The expression order goes minute, hour, day of the month, month, and day of the week    
+The first two terms means that 0 minutes after the hour, at 20:00 UTC, which is 8:00 pm UTC or 3:00 pm EST, it will perform the scrape.    
+The asterisks mean that it will do this on every day of the month, on every month, and every day of the week   
+I modified it to be:     
+cron: "25,30, 7 * * *", which means it will scrape at 2:25 and 2:30 am every day regardless of day of the week, day of the month, or month.  
+
+## Modifications to script.py
+I edited the scraper so that it instead took the first article headline from the opnions page. I did this by first changing the site requested to be the opnions page at https://www.thedp.com/section/opinion.  
+I did this by changing the site the request used. req = requests.get("https://www.thedp.com/section/opinion", headers=headers)  
+
+I also edited this line: target_element = soup.find("a", class_="standard-link") as it previously said "headline-link" instead of "standard-link". This is because I inspected the opinions page and I because I understand that soup will find the text of the first <a> html element that has the standard-link class. 
+
 # Basic Git Scraper Template
 
 This template provides a starting point for **git scraping**—the technique of scraping data from websites and automatically committing it to a Git repository using workflows, [coined by Simon Willison](https://simonwillison.net/2020/Oct/9/git-scraping/).
